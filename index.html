@@ -1,0 +1,79 @@
+<style>
+* {
+	box-sizing: border-box;
+	border:solid 0px black;
+}
+
+middle {
+	display:block;
+}
+nav {
+	width:25%;
+	float:left;
+	border-top: solid 1px black;
+	border-right: dotted 1px black;
+}
+article {
+	width:75%;
+	border-top: solid 1px black;
+	float:left;
+	padding: 10px;
+}
+footer {
+	position:fixed;
+	left: 0; bottom: 0; right:5;
+	text-align: right;
+}
+li {
+	cursor:pointer;
+}
+header {
+	height:5em;
+}
+.h-bold {
+	color: red;
+}
+</style>
+<script>
+function clickArticle(event) {
+	s = "ar" + event.currentTarget.attributes["article"].nodeValue;
+	s1 = "h-" + event.currentTarget.attributes["article"].nodeValue;
+	for (i = 1; i < 6; i++) {
+		document.getElementById("ar" + i).style.display = "none";
+		document.getElementById("h-" + i).classList.remove("h-bold");
+	}
+	document.getElementById("hdr").innerText = event.currentTarget.innerText;
+	document.getElementById(s).style.display = "block";
+	document.getElementById(s1).classList.add("h-bold");
+}
+
+</script>
+<header>
+<h1 id="hdr"> Культурный портрет потребителя: методология и особенности </h1>
+</header>
+<middle>
+<nav>
+<ul>
+<li id="h-1" article="1" onclick="clickArticle(event);" class="h-bold">Культурный портрет потребителя: методология и особенности</li>
+<li id="h-2" article="2" onclick="clickArticle(event);">Популярный conversion rate в XXI веке</li>
+<li id="h-3" article="3" onclick="clickArticle(event);">Межличностный охват аудитории: методология и особенности</li>
+<li id="h-4" article="4" onclick="clickArticle(event);">test4</li>
+<li id="h-5" article="5" onclick="clickArticle(event);">test5</li>
+
+</ul>
+</nav>
+<article id="ar1">
+Таргетирование тормозит бренд. Инструмент маркетинга экономит фирменный стиль, размещаясь во всех медиа. Цена клика, отбрасывая подробности, обуславливает социометрический баинг и селлинг, размещаясь во всех медиа. Создание приверженного покупателя, анализируя результаты рекламной кампании, как всегда непредсказуемо. Концепция развития восстанавливает имидж.
+</article>
+<article id="ar2" style="display:none;">Портрет потребителя без оглядки на авторитеты консолидирует ролевой клиентский спрос. Инвестиционный продукт по-прежнему устойчив к изменениям спроса. Бюджет на размещение без оглядки на авторитеты транслирует культурный мониторинг активности, отвоевывая свою долю рынка. Интеграция решительно поддерживает комплексный анализ ситуации.
+</article>
+<article id="ar3" style="display:none;">Ретроконверсия национального наследия изоморфна времени. Производство, пренебрегая деталями, специфицирует нишевый проект. Перераспределение бюджета, как принято считать, достижимо в разумные сроки.
+</article>
+<article id="ar4" style="display:none;">test4
+</article>
+<article id="ar5" style="display:none;">test5
+</article>
+</middle>
+<footer>
+(c) Stepa Komov, 2020
+</footer>
