@@ -1,44 +1,22 @@
 <html>
 <head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<link rel="stylesheet" type="text/css" href="index.css" />
 </head>
 <body>
 <style>
-* {
-	box-sizing: border-box;
-	border:solid 0px black;
-}
 
-middle {
-	display:block;
-}
-nav {
-	width:25%;
-	float:left;
-	border-top: solid 1px black;
-	border-right: dotted 1px black;
-}
-article {
-	width:75%;
-	border-top: solid 1px black;
-	float:left;
-	padding: 10px;
-}
-footer {
-	position:fixed;
-	left: 0; bottom: 0; right:5;
-	text-align: right;
-}
-li {
-	cursor:pointer;
-}
-header {
-	height:5em;
-}
-.h-bold {
-	color: red;
-}
 </style>
+<script src="index.js"></script>
 <script>
+$(document).ready (function () {
+	$('li[article]').on ('click', function (event) {
+		alert(event.currentTarget.attributes["article"].nodeValue);
+	});
+	$('#ar1').on ('click', function () {
+		$('#ar1').html("test");
+	});
+});
 function clickArticle(event) {
 	s = "ar" + event.currentTarget.attributes["article"].nodeValue;
 	s1 = "h-" + event.currentTarget.attributes["article"].nodeValue;
@@ -62,7 +40,7 @@ function clickArticle(event) {
 <li id="h-2" article="2" onclick="clickArticle(event);">Популярный conversion rate в XXI веке</li>
 <li id="h-3" article="3" onclick="clickArticle(event);">Межличностный охват аудитории: методология и особенности</li>
 <li id="h-4" article="4" onclick="clickArticle(event);">test44</li>
-<li id="h-5" article="5" onclick="clickArticle(event);">test5</li>
+<li id="h-5" article="5" onclick="clickArticle(event);">test55</li>
 
 </ul>
 </nav>

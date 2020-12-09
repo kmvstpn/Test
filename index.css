@@ -1,0 +1,34 @@
+* {
+	box-sizing: border-box;
+	border:solid 0px black;
+}
+
+middle {
+	display:block;
+}
+nav {
+	width:25%;
+	float:left;
+	border-top: solid 1px black;
+	border-right: dotted 1px black;
+}
+article {
+	width:75%;
+	border-top: solid 1px black;
+	float:left;
+	padding: 10px;
+}
+footer {
+	position:fixed;
+	left: 0; bottom: 0; right:5;
+	text-align: right;
+}
+li {
+	cursor:pointer;
+}
+header {
+	height:5em;
+}
+.h-bold {
+	color: red;
+}
