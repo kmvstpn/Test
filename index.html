@@ -11,22 +11,23 @@
 <script>
 $(document).ready (function () {
 	$('li[article]').on ('click', function (event) {
-		alert(event.currentTarget.attributes["article"].nodeValue);
-	});
-	$('#ar1').on ('click', function () {
-		$('#ar1').html("test");
+		clickArticle(event)
 	});
 });
 function clickArticle(event) {
-	s = "ar" + event.currentTarget.attributes["article"].nodeValue;
-	s1 = "h-" + event.currentTarget.attributes["article"].nodeValue;
+	//debugger;
+	s = "#ar" + event.target.attributes["article"].nodeValue;
+	s1 = "#h-" + event.target.attributes["article"].nodeValue;
 	for (i = 1; i < 6; i++) {
-		document.getElementById("ar" + i).style.display = "none";
-		document.getElementById("h-" + i).classList.remove("h-bold");
+		$("#ar" + i).css('display', "none");
+		$("#h-" + i).removeClass("h-bold");
 	}
-	document.getElementById("hdr").innerText = event.currentTarget.innerText;
-	document.getElementById(s).style.display = "block";
-	document.getElementById(s1).classList.add("h-bold");
+	$("#hdr").text(event.currentTarget.innerText);
+	
+	$(s).css('opacity', "0");
+	$(s).css('display', "block");
+	$(s1).addClass("h-bold");
+	$(s).fadeTo('slow', 1);
 }
 
 </script>
@@ -36,11 +37,11 @@ function clickArticle(event) {
 <middle>
 <nav>
 <ul>
-<li id="h-1" article="1" onclick="clickArticle(event);" class="h-bold">Культурный портрет потребителя: методология и особенности</li>
-<li id="h-2" article="2" onclick="clickArticle(event);">Популярный conversion rate в XXI веке</li>
-<li id="h-3" article="3" onclick="clickArticle(event);">Межличностный охват аудитории: методология и особенности</li>
-<li id="h-4" article="4" onclick="clickArticle(event);">test44</li>
-<li id="h-5" article="5" onclick="clickArticle(event);">test55</li>
+<li id="h-1" article="1"  class="h-bold">Культурный портрет потребителя: методология и особенности</li>
+<li id="h-2" article="2" >Популярный conversion rate в XXI веке</li>
+<li id="h-3" article="3" >Межличностный охват аудитории: методология и особенности</li>
+<li id="h-4" article="4" >test44</li>
+<li id="h-5" article="5" >test55</li>
 
 </ul>
 </nav>
