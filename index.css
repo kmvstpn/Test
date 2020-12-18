@@ -32,3 +32,16 @@ header {
 .h-bold {
 	color: red;
 }
+shortcut {
+	position:absolute;
+	border: solid 2px darkgreen;
+	background-color:green;
+	opacity: 0.4;
+	display:inline;
+	text-align: left;
+	color:white;
+	cursor: pointer;
+}	
+shortcut:hover {
+	opacity:1;
+}
