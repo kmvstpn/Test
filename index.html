@@ -10,24 +10,19 @@
 <script src="index.js"></script>
 <script>
 $(document).ready (function () {
+	//debugger;
 	$('li[article]').on ('click', function (event) {
 		clickArticle(event)
 	});
 });
 function clickArticle(event) {
-	//debugger;
-	s = "#ar" + event.target.attributes["article"].nodeValue;
-	s1 = "#h-" + event.target.attributes["article"].nodeValue;
-	for (i = 1; i < 6; i++) {
-		$("#ar" + i).css('display', "none");
-		$("#h-" + i).removeClass("h-bold");
-	}
+	s = event.target.attributes["article"].nodeValue;
+	$('article').css('display','none');
+	$('li[article]').removeClass('h-bold');
 	$("#hdr").text(event.currentTarget.innerText);
-	
-	$(s).css('opacity', "0");
-	$(s).css('display', "block");
-	$(s1).addClass("h-bold");
-	$(s).fadeTo('slow', 1);
+	$('li[article='+s+']').addClass('h-bold');  // 'li[article=2]'
+	$('#ar'+s).css({'opacity':'0','display':'block'});
+	$('#ar'+s).fadeTo('slow', 1);
 }
 
 </script>
@@ -37,11 +32,11 @@ function clickArticle(event) {
 <middle>
 <nav>
 <ul>
-<li id="h-1" article="1"  class="h-bold">Культурный портрет потребителя: методология и особенности</li>
-<li id="h-2" article="2" >Популярный conversion rate в XXI веке</li>
-<li id="h-3" article="3" >Межличностный охват аудитории: методология и особенности</li>
-<li id="h-4" article="4" >test44</li>
-<li id="h-5" article="5" >test55</li>
+<li article="1"  class="h-bold">Культурный портрет потребителя: методология и особенности</li>
+<li article="2" >Популярный conversion rate в XXI веке</li>
+<li article="3" >Межличностный охват аудитории: методология и особенности</li>
+<li article="4" >test44</li>
+<li article="5" >test55</li>
 
 </ul>
 </nav>
