@@ -4,33 +4,71 @@
 <link rel="stylesheet" type="text/css" href="index.css" />
 </head>
 <body>
-<style>
-
-</style>
+<shortcut>
+<invitation>Press me for chat</invitation>
+<form style="display:none;">
+<div>
+	<table width="100%">
+		<tr><td><input type="text" id="fname" placeholder="Кому" name="fname"></td><td><img src="send.png"></td></tr>
+	 
+	</table>
+</div>
+<div>
+  <textarea type="text" id="lname" placeholder="Текст сообщения" name="lname" rows="4"></textarea>
+</div>
+</form>
+</shortcut>
 <script src="index.js"></script>
 <script>
+shortcutStatus = 'not-expanded';
+function shortcutSize() {
+	if ('expanded' == shortcutStatus) {
+		$('shortcut').css('left', '85%');
+		$('shortcut').css('top', '70%');
+		$('shortcut').css('width', '15%');
+		$('shortcut').css('height', '30%');
+		$('invitation').text('Chat with me');
+		$('shortcut').css('opacity', '1');
+
+	} else {
+		$('invitation').text('Press me for chat');
+		$('shortcut').css('opacity','0.4');
+		$('shortcut').css('width', 'auto');
+		$('shortcut').css('height', 'auto');
+		$('shortcut').css('left', $(window).innerWidth() - $('shortcut').outerWidth() + 'px');
+		$('shortcut').css('top', $(window).innerHeight() - $('shortcut').outerHeight() + 'px');
+	}
+}
 $(document).ready (function () {
 	//debugger;
 	$('li[article]').on ('click', function (event) {
 		clickArticle(event)
 	});
+	shortcutSize();
 	$('shortcut').on ('click', function () {
-		$('shortcut').css('left', '50%');
-		$('shortcut').css('top', '50%');
-		$('shortcut').css('width', '50%');
-		$('shortcut').css('height', '50%');
+		shortcutStatus = "expanded";
+		$('form').show();
+		shortcutSize();
+	});
+	$('img').on ('click', function (event) {
+		$('form').hide();
+		shortcutStatus = "not-expanded";
+		shortcutSize();
+		event.stopPropagation();
 	});
 	//debugger;
-	$('shortcut').css('left', $(window).innerWidth() - $('shortcut').outerWidth() + 'px');
-	$('shortcut').css('top', $(window).innerHeight() - $('shortcut').outerHeight() + 'px');
+	$(window).resize( function () {
+		shortcutSize();
+	});
 });
+
 function clickArticle(event) {
 	s = event.target.attributes["article"].nodeValue;
 	$('article').css('display','none');
 	$('li[article]').removeClass('h-bold');
 	$("#hdr").text(event.currentTarget.innerText);
 	$('li[article='+s+']').addClass('h-bold');  // 'li[article=2]'
-	$('#ar'+s).css({'opacity':'0','display':'block'});
+	$('#ar'+s).css({'opacity':'0.4','display':'block'});
 	$('#ar'+s).fadeTo('slow', 1);
 }
 
@@ -44,8 +82,8 @@ function clickArticle(event) {
 <li article="1"  class="h-bold">Культурный портрет потребителя: методология и особенности</li>
 <li article="2" >Популярный conversion rate в XXI веке</li>
 <li article="3" >Межличностный охват аудитории: методология и особенности</li>
-<li article="4" >test44</li>
-<li article="5" >test55</li>
+<li article="4" >Эмпирический CTR в XXI веке</li>
+<li article="5" >Комплексный фактор коммуникации: гипотеза и теории</li>
 
 </ul>
 </nav>
@@ -56,15 +94,13 @@ function clickArticle(event) {
 </article>
 <article id="ar3" style="display:none;">Ретроконверсия национального наследия изоморфна времени. Производство, пренебрегая деталями, специфицирует нишевый проект. Перераспределение бюджета, как принято считать, достижимо в разумные сроки.
 </article>
-<article id="ar4" style="display:none;">test4
+<article id="ar4" style="display:none;">Выставка определяет потребительский рынок, оптимизируя бюджеты. Презентационный материал нетривиален. Реклама все еще интересна для многих. Согласно ставшей уже классической работе Филипа Котлера, спонсорство оправдывает отраслевой стандарт, используя опыт предыдущих кампаний.
 </article>
-<article id="ar5" style="display:none;">test5
+<article id="ar5" style="display:none;">VIP-мероприятие, вопреки мнению П.Друкера, создает повседневный PR. Дело в том, что взаимодействие корпорации и клиента притягивает эмпирический стиль менеджмента, осознав маркетинг как часть производства. Фокусировка, следовательно, экономит инструмент маркетинга. Лидерство в продажах, как принято считать, тормозит медиаплан.
 </article>
 </middle>
 <footer>
 (c) Stepa Komov, 2020
 </footer>
-<shortcut>Press me for chat
-</shortcut
 </body>
 </html>

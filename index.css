@@ -21,7 +21,7 @@ article {
 footer {
 	position:fixed;
 	left: 0; bottom: 0; right:5;
-	text-align: right;
+	text-align: left;
 }
 li {
 	cursor:pointer;
@@ -34,14 +34,25 @@ header {
 }
 shortcut {
 	position:absolute;
-	border: solid 2px darkgreen;
-	background-color:green;
+	border: solid 2px black;
+	background-color:gray;
 	opacity: 0.4;
 	display:inline;
 	text-align: left;
 	color:white;
 	cursor: pointer;
+	z-index: 100;
+}
+invitation {
+	cursor: pointer;
 }	
-shortcut:hover {
+invitation:hover {
 	opacity:1;
+}
+div {
+	padding: 5px;
+}
+
+textarea, input {
+	width: 100%;
 }
